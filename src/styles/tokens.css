@@ -1,0 +1,22 @@
+:root {
+  --color-background: #000000;
+  --color-foreground: #fafafa;
+  --color-muted: #a3a3a3;
+  --color-accent: #a855f7;
+  --color-border: #262626;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-muted: var(--color-muted);
+  --color-accent: var(--color-accent);
+  --color-border: var(--color-border);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-jakarta);
+}
