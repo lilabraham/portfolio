@@ -27,7 +27,7 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-[calc(100dvh-73px)] flex-col justify-between overflow-hidden px-6 py-16">
       {/* Desktop: keycap grid as side element */}
-      <div className="absolute right-[-4rem] top-0 hidden h-full w-[55%] items-center justify-center lg:flex">
+      <div className="absolute right-[-8rem] top-0 hidden h-full w-[55%] items-center justify-center lg:flex">
         <div
           className="absolute inset-0"
           style={{

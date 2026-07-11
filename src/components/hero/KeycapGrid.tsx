@@ -13,8 +13,8 @@ const TECH_LABELS: Record<string, string> = {
   O: "CodeIgniter",
   H: "Flutter",
 };
-const KEY_SIZE = 64;
-const GAP = 12;
+const KEY_SIZE = 76;
+const GAP = 14;
 const TYPE_INTERVAL_MS = 400;
 const LOOP_PAUSE_MS = 1800;
 
@@ -121,8 +121,8 @@ export default function KeycapGrid() {
                     height: KEY_SIZE,
                     transformStyle: "preserve-3d",
                     transform: isPressed
-                      ? "translateZ(24px) translateY(calc(var(--lift, 0px) - 18px)) scale(1.18)"
-                      : "translateZ(4px) translateY(var(--lift, 0px)) scale(1)",
+                      ? "translateZ(36px) translateY(calc(var(--lift, 0px) - 24px)) scale(1.18)"
+                      : "translateZ(8px) translateY(var(--lift, 0px)) scale(1)",
                     transition: isPressed
                       ? "transform 0.08s ease-out, background 0.08s, box-shadow 0.08s"
                       : "transform 0.25s ease-in, background 0.2s, box-shadow 0.2s",
