@@ -6,6 +6,8 @@
   --color-border: #262626;
   --color-success: #34d399;
   --color-warning: #fbbf24;
+  --color-info: #38bdf8;
+  --color-special: #f472b6;
 }
 
 @theme inline {
@@ -16,6 +18,8 @@
   --color-border: var(--color-border);
   --color-success: var(--color-success);
   --color-warning: var(--color-warning);
+  --color-info: var(--color-info);
+  --color-special: var(--color-special);
 
   --font-display: var(--font-playfair);
   --font-body: var(--font-jakarta);

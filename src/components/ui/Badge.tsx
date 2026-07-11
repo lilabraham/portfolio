@@ -2,7 +2,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-type Tone = "accent" | "muted" | "success" | "warning";
+type Tone = "accent" | "muted" | "success" | "warning" | "info";
 
 interface BadgeProps {
   children: ReactNode;
@@ -15,6 +15,7 @@ const toneClass: Record<Tone, string> = {
   muted: "border-border text-muted",
   success: "border-success/40 text-success",
   warning: "border-warning/40 text-warning",
+  info: "border-info/40 text-info",
 };
 
 export default function Badge({ children, tone = "muted", className }: BadgeProps) {

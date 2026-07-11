@@ -1,12 +1,20 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
-const ROW_CHARS = ["QWERTYUIOP", "ASDFGHJKL;", "ZXCVBNM,./"];
+const ROW_CHARS = ["1234567890", "QWERTYUIOP", "ASDFGHJKL;", "ZXCVBNM,./"];
 const TYPE_SEQUENCE = ["I", "Q", "R", "O", "H"];
 const HIGHLIGHT = new Set(TYPE_SEQUENCE);
-const KEY_SIZE = 52;
-const GAP = 10;
+const TECH_LABELS: Record<string, string> = {
+  I: "TypeScript",
+  Q: "Next.js",
+  R: "React",
+  O: "CodeIgniter",
+  H: "Flutter",
+};
+const KEY_SIZE = 64;
+const GAP = 12;
 const TYPE_INTERVAL_MS = 400;
 const LOOP_PAUSE_MS = 1800;
 
@@ -119,7 +127,9 @@ export default function KeycapGrid() {
                       ? "transform 0.08s ease-out, background 0.08s, box-shadow 0.08s"
                       : "transform 0.25s ease-in, background 0.2s, box-shadow 0.2s",
                     borderRadius: 8,
-                    background: isPressed ? "var(--color-accent)" : "var(--color-background)",
+                    background: isPressed
+                      ? "var(--color-accent)"
+                      : "linear-gradient(160deg, color-mix(in srgb, var(--color-background) 85%, white) 0%, var(--color-background) 55%)",
                     color: isPressed
                       ? "var(--color-background)"
                       : isHighlight
@@ -127,11 +137,25 @@ export default function KeycapGrid() {
                         : "var(--color-foreground)",
                     border: `1.5px solid ${isHighlight || isPressed ? "var(--color-accent)" : "var(--color-border)"}`,
                     boxShadow: isPressed
-                      ? "0 0 24px rgba(168, 85, 247, 0.8), 0 12px 0 var(--color-border), 0 16px 20px rgba(0,0,0,0.45)"
-                      : "0 6px 0 var(--color-border), 0 8px 12px rgba(0,0,0,0.35)",
+                      ? "inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -2px 3px rgba(0,0,0,0.25), 0 0 24px rgba(168, 85, 247, 0.8), 0 12px 0 var(--color-border), 0 16px 20px rgba(0,0,0,0.45)"
+                      : "inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -3px 4px rgba(0,0,0,0.35), 0 6px 0 var(--color-border), 0 8px 12px rgba(0,0,0,0.35)",
                   }}
                 >
                   {char}
+                  {isHighlight && (
+                    <span
+                      className="pointer-events-none absolute whitespace-nowrap rounded-full border border-accent/40 bg-background px-2 py-0.5 font-mono text-[10px] text-accent"
+                      style={{
+                        top: "-2.2rem",
+                        left: "50%",
+                        transform: `translateX(-50%) translateZ(40px) rotateZ(8deg) rotateX(-52deg) scale(${isPressed ? 1 : 0.85})`,
+                        opacity: isPressed ? 1 : 0,
+                        transition: "opacity 0.2s ease, transform 0.2s ease",
+                      }}
+                    >
+                      {TECH_LABELS[char]}
+                    </span>
+                  )}
                 </div>
               );
             })}
