@@ -1,5 +1,9 @@
 // src/components/projects/ProjectCard.tsx
+"use client";
+
 import Image from "next/image";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import type { MouseEvent } from "react";
 import Button from "@/components/ui/Button";
 import ProjectStatusBadge from "./ProjectStatusBadge";
 import type { Project } from "@/lib/types";
@@ -13,8 +17,29 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
   const { title, description, status, image, techStack, liveUrl, repoUrl } = project;
   const primaryLabel = status === "live" ? "Live Demo" : null;
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [4, -4]), { stiffness: 300, damping: 25 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-4, 4]), { stiffness: 300, damping: 25 });
+
+  const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-border">
+    <motion.article
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformPerspective: 800 }}
+      className="group flex flex-col overflow-hidden rounded-2xl border border-border"
+    >
       {image ? (
         <div className="relative aspect-video w-full overflow-hidden bg-border/30">
           <Image
@@ -63,6 +88,6 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
           </div>
         ) : null}
       </div>
-    </article>
+    </motion.article>
   );
 }

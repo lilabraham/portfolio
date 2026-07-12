@@ -7,7 +7,7 @@ import Container from "@/components/ui/Container";
 import { socialLinks, type SocialIconName } from "@/lib/data/social";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/data/nav";
-import ScrambleLogo from "@/components/layout/ScrambleLogo";import { EmailIcon, GithubIcon, LinkedinIcon } from "@/components/ui/icons";
+import ScrambleLogo from "@/components/layout/ScrambleLogo"; import { EmailIcon, GithubIcon, LinkedinIcon } from "@/components/ui/icons";
 import { useTransitionNavigate, useMenuState } from "@/components/layout/PageTransition";
 
 const ICON_MAP: Record<SocialIconName, typeof EmailIcon> = {
@@ -23,6 +23,7 @@ export default function Navbar() {
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
+    setIsOpen(false);
     if (pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
@@ -38,14 +39,14 @@ export default function Navbar() {
   }, [isOpen]);
 
   const bar1Class = isOpen
-    ? "h-0.5 w-6 bg-foreground transition-transform translate-y-2 rotate-45"
-    : "h-0.5 w-6 bg-foreground transition-transform";
+    ? "h-0.5 w-6 bg-foreground transition-transform duration-300 ease-out translate-y-2 rotate-45"
+    : "h-0.5 w-6 bg-foreground transition-transform duration-300 ease-out";
   const bar2Class = isOpen
-    ? "h-0.5 w-6 bg-foreground transition-opacity opacity-0"
-    : "h-0.5 w-6 bg-foreground transition-opacity";
+    ? "h-0.5 w-6 bg-foreground transition-opacity duration-200 ease-out opacity-0"
+    : "h-0.5 w-6 bg-foreground transition-opacity duration-200 ease-out";
   const bar3Class = isOpen
-    ? "h-0.5 w-6 bg-foreground transition-transform -translate-y-2 -rotate-45"
-    : "h-0.5 w-6 bg-foreground transition-transform";
+    ? "h-0.5 w-6 bg-foreground transition-transform duration-300 ease-out -translate-y-2 -rotate-45"
+    : "h-0.5 w-6 bg-foreground transition-transform duration-300 ease-out";
 
   return (
     <>
@@ -75,12 +76,11 @@ export default function Navbar() {
 
       <AnimatePresence>
         {isOpen ? (
-// AFTER
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
+            transition={{ duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
             className="fixed left-0 right-0 top-[73px] bottom-0 z-40 flex flex-col items-center justify-center bg-background"
           >
             <motion.ul
@@ -102,7 +102,7 @@ export default function Navbar() {
                   }}
                   transition={{ duration: 0.6 }}
                 >
-              <motion.div whileTap={{ scale: 0.92 }}>
+                  <motion.div whileTap={{ scale: 0.92 }}>
                     <Link
                       href={link.href}
                       onClick={(e) => {

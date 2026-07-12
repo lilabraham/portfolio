@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
+import CVComingSoonModal from "./CVComingSoonModal";
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
 import TerminalCard from "./TerminalCard";
 
 export default function AboutSection() {
+  const [showCVModal, setShowCVModal] = useState(false);
+
   return (
     <section className="py-24">
       <Container className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
@@ -50,10 +53,15 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Button href="/cv/iqra-atqiya-cv.pdf" external variant="secondary" size="sm">
+            <button
+              onClick={() => setShowCVModal(true)}
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 font-body text-sm text-foreground transition-colors hover:border-accent"
+            >
               View CV
-            </Button>
+            </button>
           </motion.div>
+
+          <CVComingSoonModal isOpen={showCVModal} onClose={() => setShowCVModal(false)} />
         </div>
 
         <TerminalCard />
