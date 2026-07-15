@@ -29,6 +29,7 @@ export default function ParticleField() {
     const root = getComputedStyle(document.documentElement);
     const colors = COLOR_VARS.map((v) => root.getPropertyValue(v).trim()).filter(Boolean);
     if (colors.length === 0) colors.push("#a855f7");
+    const fontFamily = root.getPropertyValue("--font-mono").trim() || "monospace";
 
     let width = 0;
     let height = 0;
@@ -52,10 +53,10 @@ export default function ParticleField() {
       particles = Array.from({ length: PARTICLE_COUNT }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 10 + 16,
+        size: Math.random() * 12 + 22,
         speed: Math.random() * 0.25 + 0.08,
         depth: Math.random() * 0.6 + 0.2,
-        opacity: Math.random() * 0.18 + 0.14,
+        opacity: Math.random() * 0.25 + 0.25,
         color: colors[Math.floor(Math.random() * colors.length)],
         glyph: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
         rotation: (Math.random() - 0.5) * 0.3,
@@ -82,7 +83,7 @@ export default function ParticleField() {
         ctx.save();
         ctx.translate(px, py);
         ctx.rotate(p.rotation);
-        ctx.font = `${p.size}px var(--font-mono, monospace)`;
+        ctx.font = `${p.size}px ${fontFamily}`;
         ctx.fillStyle = p.color;
         ctx.globalAlpha = p.opacity;
         ctx.textAlign = "center";
