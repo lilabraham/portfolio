@@ -7,5 +7,6 @@ export const profile: ProfileData = {
   whatsapp: "+62 895 0118 1894",
   linkedinUrl: "https://www.linkedin.com/in/iqra-manaqibal-atqiya-5b21881a0/",
   githubUrl: "https://github.com/lilabraham",
+  instagramUrl: "https://www.instagram.com/iqro46/",
   location: "Central Java, Indonesia",
 };

@@ -22,6 +22,7 @@ export interface ProfileData {
   linkedinUrl: string;
   githubUrl: string;
   location: string;
+  instagramUrl: string;
 }
 
 export type TechCategory = "Frontend" | "Backend" | "Data" | "Tools";

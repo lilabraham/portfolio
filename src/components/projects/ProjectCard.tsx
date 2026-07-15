@@ -19,26 +19,29 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [4, -4]), { stiffness: 300, damping: 25 });
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-4, 4]), { stiffness: 300, damping: 25 });
+  const scale = useSpring(1, { stiffness: 300, damping: 25 });
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), { stiffness: 300, damping: 25 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), { stiffness: 300, damping: 25 });
 
   const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
     mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+    scale.set(1.02);
   };
 
   const handleMouseLeave = () => {
     mouseX.set(0);
     mouseY.set(0);
+    scale.set(1);
   };
 
   return (
     <motion.article
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformPerspective: 800 }}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-border"
+      style={{ rotateX, rotateY, scale, transformPerspective: 500 }}
+      className="group/card flex flex-col overflow-hidden rounded-2xl border border-border"
     >
       {image ? (
         <div className="relative aspect-video w-full overflow-hidden bg-border/30">
@@ -48,7 +51,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
             fill
             priority={priority}
             style={{ objectPosition: project.imagePosition ?? "center" }}
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover transition-transform duration-300 group-hover/card:scale-105"
             sizes="(min-width: 768px) 33vw, 100vw"
           />
         </div>

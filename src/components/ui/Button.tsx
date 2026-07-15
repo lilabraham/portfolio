@@ -26,7 +26,7 @@ const variantClass: Record<Variant, string> = {
 };
 
 const baseClass =
-  "group relative inline-flex items-center justify-center rounded-full font-body font-semibold transition-colors";
+  "group/btn relative inline-flex items-center justify-center rounded-full font-body font-semibold transition-colors";
 
 const sizeClass: Record<Size, string> = {
   sm: "px-5 py-2 text-xs",
@@ -34,7 +34,7 @@ const sizeClass: Record<Size, string> = {
 };
 
 const CORNER_BASE =
-  "absolute h-2.5 w-2.5 border-accent opacity-0 transition-all duration-300 ease-out group-hover:opacity-100";
+  "absolute h-2.5 w-2.5 border-accent opacity-0 transition-all duration-300 ease-out group-hover/btn:opacity-100";
 
 function ButtonContent({ children }: { children: ReactNode }) {
   return (
@@ -44,40 +44,40 @@ function ButtonContent({ children }: { children: ReactNode }) {
         <span
           className={cn(
             CORNER_BASE,
-            "left-0 top-0 -translate-x-1 -translate-y-1 border-l-2 border-t-2 group-hover:translate-x-0 group-hover:translate-y-0"
+            "left-0 top-0 -translate-x-1 -translate-y-1 border-l-2 border-t-2 group-hover/btn:translate-x-0 group-hover/btn:translate-y-0"
           )}
         />
         <span
           className={cn(
             CORNER_BASE,
-            "right-0 top-0 translate-x-1 -translate-y-1 border-r-2 border-t-2 group-hover:translate-x-0 group-hover:translate-y-0"
+            "right-0 top-0 translate-x-1 -translate-y-1 border-r-2 border-t-2 group-hover/btn:translate-x-0 group-hover/btn:translate-y-0"
           )}
         />
         <span
           className={cn(
             CORNER_BASE,
-            "bottom-0 left-0 -translate-x-1 translate-y-1 border-b-2 border-l-2 group-hover:translate-x-0 group-hover:translate-y-0"
+            "bottom-0 left-0 -translate-x-1 translate-y-1 border-b-2 border-l-2 group-hover/btn:translate-x-0 group-hover/btn:translate-y-0"
           )}
         />
         <span
           className={cn(
             CORNER_BASE,
-            "bottom-0 right-0 translate-x-1 translate-y-1 border-b-2 border-r-2 group-hover:translate-x-0 group-hover:translate-y-0"
+            "bottom-0 right-0 translate-x-1 translate-y-1 border-b-2 border-r-2 group-hover/btn:translate-x-0 group-hover/btn:translate-y-0"
           )}
         />
-      </span>
+      </span> {/* <-- MISSING CLOSING TAG ADDED HERE */}
 
       {/* text layer-swap */}
       <span className="relative inline-block overflow-hidden">
         <span aria-hidden className="invisible">
           {children}
         </span>
-        <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out group-hover:-translate-y-full">
+        <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out group-hover/btn:-translate-y-full">
           {children}
         </span>
         <span
           aria-hidden
-          className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-300 ease-out group-hover:translate-y-0"
+          className="absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-300 ease-out group-hover/btn:translate-y-0"
         >
           {children}
         </span>

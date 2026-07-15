@@ -1,5 +1,4 @@
-// src/lib/data/social.ts
-export type SocialIconName = "email" | "github" | "linkedin";
+export type SocialIconName = "email" | "github" | "linkedin" | "instagram";
 
 export interface SocialLink {
   label: string;
@@ -16,5 +15,11 @@ export const socialLinks: SocialLink[] = [
     href: "https://www.linkedin.com/in/iqra-manaqibal-atqiya-5b21881a0/",
     external: true,
     icon: "linkedin",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/iqro46/",
+    external: true,
+    icon: "instagram",
   },
 ];

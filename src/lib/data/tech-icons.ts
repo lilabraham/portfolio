@@ -7,7 +7,6 @@ import {
 } from "react-icons/si";
 import type { TechCategory } from "@/lib/types";
 
-// Key harus persis sama dengan `name` di tech-stack.ts
 export const TECH_ICON_MAP: Record<string, IconType[]> = {
   "Next.js": [SiNextdotjs],
   "React": [SiReact],

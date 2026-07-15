@@ -7,13 +7,14 @@ import Container from "@/components/ui/Container";
 import { socialLinks, type SocialIconName } from "@/lib/data/social";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/data/nav";
-import ScrambleLogo from "@/components/layout/ScrambleLogo"; import { EmailIcon, GithubIcon, LinkedinIcon } from "@/components/ui/icons";
+import ScrambleLogo from "@/components/layout/ScrambleLogo"; import { EmailIcon, GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/icons";
 import { useTransitionNavigate, useMenuState } from "@/components/layout/PageTransition";
 
 const ICON_MAP: Record<SocialIconName, typeof EmailIcon> = {
   email: EmailIcon,
   github: GithubIcon,
   linkedin: LinkedinIcon,
+  instagram: InstagramIcon,
 };
 
 export default function Navbar() {

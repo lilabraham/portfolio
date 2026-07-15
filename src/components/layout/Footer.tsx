@@ -3,12 +3,13 @@ import Container from "@/components/ui/Container";
 import { profile } from "@/lib/data/profile";
 import { NAV_LINKS } from "@/lib/data/nav";
 import { socialLinks, type SocialIconName } from "@/lib/data/social";
-import { EmailIcon, GithubIcon, LinkedinIcon } from "@/components/ui/icons";
+import { EmailIcon, GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/icons";
 
 const ICON_MAP: Record<SocialIconName, typeof EmailIcon> = {
   email: EmailIcon,
   github: GithubIcon,
   linkedin: LinkedinIcon,
+  instagram: InstagramIcon,
 };
 
 export default function Footer() {
