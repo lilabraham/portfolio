@@ -6,6 +6,8 @@ import PageTransition from "@/components/layout/PageTransition";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import CommandPalette from "@/components/layout/CommandPalette";
 import { CommandPaletteProvider } from "@/components/layout/CommandPaletteContext";
+import KonamiEasterEgg from "@/components/layout/KonamiEasterEgg";
+import PixelPet from "@/components/layout/PixelPet";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import CustomCursor from "@/components/ui/CustomCursor";
 import "./globals.css";
@@ -70,6 +72,8 @@ export default function RootLayout({
             <CommandPalette />
           </PageTransition>
         </CommandPaletteProvider>
+        <KonamiEasterEgg />
+        <PixelPet />
       </body>
     </html>
   );
