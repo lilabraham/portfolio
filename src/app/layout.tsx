@@ -3,6 +3,9 @@ import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";// AFTER
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
+import ScrollProgress from "@/components/layout/ScrollProgress";
+import CommandPalette from "@/components/layout/CommandPalette";
+import { CommandPaletteProvider } from "@/components/layout/CommandPaletteContext";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import CustomCursor from "@/components/ui/CustomCursor";
 import "./globals.css";
@@ -56,13 +59,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
-        <PageTransition>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <ScrollToTopButton />
-          <CustomCursor />
-        </PageTransition>
+        <ScrollProgress />
+        <CommandPaletteProvider>
+          <PageTransition>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <ScrollToTopButton />
+            <CustomCursor />
+            <CommandPalette />
+          </PageTransition>
+        </CommandPaletteProvider>
       </body>
     </html>
   );

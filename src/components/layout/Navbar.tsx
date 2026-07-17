@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/data/nav";
 import ScrambleLogo from "@/components/layout/ScrambleLogo"; import { EmailIcon, GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/icons";
 import { useTransitionNavigate, useMenuState } from "@/components/layout/PageTransition";
+import { useCommandPalette } from "@/components/layout/CommandPaletteContext";
 
 const ICON_MAP: Record<SocialIconName, typeof EmailIcon> = {
   email: EmailIcon,
@@ -21,6 +22,7 @@ export default function Navbar() {
   const { isMenuOpen: isOpen, setIsMenuOpen: setIsOpen } = useMenuState();
   const navigate = useTransitionNavigate();
   const pathname = usePathname();
+  const { open: openPalette } = useCommandPalette();
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -61,17 +63,41 @@ export default function Navbar() {
             <ScrambleLogo />
           </Link>
 
-          <button
-            type="button"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isOpen}
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-border transition-colors hover:border-accent md:h-12 md:w-12"
-          >
-            <span className={bar1Class} />
-            <span className={bar2Class} />
-            <span className={bar3Class} />
-          </button>
+          <div className="flex items-center gap-3">
+            <motion.button
+              type="button"
+              aria-label="Open command palette"
+              onClick={openPalette}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.92 }}
+              transition={{ duration: 0.15 }}
+              className="hidden items-center gap-2 rounded-full border border-border px-3 py-1.5 text-muted transition-colors hover:border-accent hover:text-accent md:flex"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                className="h-3.5 w-3.5"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.5-3.5" strokeLinecap="round" />
+              </svg>
+              <kbd className="font-mono text-[11px]">⌘K</kbd>
+            </motion.button>
+
+            <button
+              type="button"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-border transition-colors hover:border-accent md:h-12 md:w-12"
+            >
+              <span className={bar1Class} />
+              <span className={bar2Class} />
+              <span className={bar3Class} />
+            </button>
+          </div>
         </Container>
       </header>
 

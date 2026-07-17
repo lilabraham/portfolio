@@ -38,7 +38,7 @@ export default function CustomCursor() {
   return (
     <>
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[200] hidden h-2 w-2 rounded-full bg-accent md:block"
+        className="pointer-events-none fixed left-0 top-0 z-[500] hidden h-2 w-2 rounded-full bg-accent md:block"
         style={{
           x: cursorX,
           y: cursorY,
@@ -48,7 +48,7 @@ export default function CustomCursor() {
         }}
       />
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[200] hidden rounded-full border border-accent md:block"
+        className="pointer-events-none fixed left-0 top-0 z-[500] hidden rounded-full border border-accent md:block"
         style={{
           x: ringX,
           y: ringY,
