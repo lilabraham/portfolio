@@ -10,6 +10,8 @@ import { NAV_LINKS } from "@/lib/data/nav";
 import ScrambleLogo from "@/components/layout/ScrambleLogo"; import { EmailIcon, GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/icons";
 import { useTransitionNavigate, useMenuState } from "@/components/layout/PageTransition";
 import { useCommandPalette } from "@/components/layout/CommandPaletteContext";
+import { useToast } from "@/components/layout/ToastContext";
+import { profile } from "@/lib/data/profile";
 
 const ICON_MAP: Record<SocialIconName, typeof EmailIcon> = {
   email: EmailIcon,
@@ -23,6 +25,13 @@ export default function Navbar() {
   const navigate = useTransitionNavigate();
   const pathname = usePathname();
   const { open: openPalette } = useCommandPalette();
+  const { showToast } = useToast();
+
+  const handleEmailClick = async (e: React.MouseEvent, email: string) => {
+    e.preventDefault();
+    await navigator.clipboard.writeText(email);
+    showToast("Email copied to clipboard ✓");
+  };
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -155,13 +164,15 @@ export default function Navbar() {
             >
               {socialLinks.map((link) => {
                 const Icon = ICON_MAP[link.icon];
+                const isEmail = link.icon === "email";
                 return (
                   <li key={link.label}>
                     <a
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noopener noreferrer" : undefined}
-                      aria-label={link.label}
+                      aria-label={isEmail ? "Copy email to clipboard" : link.label}
+                      onClick={isEmail ? (e) => handleEmailClick(e, profile.email) : undefined}
                       className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-accent hover:text-accent"
                     >
                       <Icon className="h-5 w-5" />

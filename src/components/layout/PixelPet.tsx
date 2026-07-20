@@ -1,10 +1,20 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useToast } from "@/components/layout/ToastContext";
 
 const PIXEL_SIZE = 4;
 const GRID = 8;
 const PET_SIZE = PIXEL_SIZE * GRID;
+
+const PET_QUOTES = [
+  "Still compiling my thoughts...",
+  "404: motivation not found. jk, found it.",
+  "I run on curiosity and cold coffee.",
+  "Half of what I build starts as 'what if'.",
+  "Beep boop. Just vibing.",
+  "Currently debugging my own existence.",
+];
 
 type PixelColor = "body" | "eye" | "shadow";
 
@@ -33,6 +43,7 @@ const BOTTOM_MARGIN = 40;
 export default function PixelPet() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
+  const { showToast } = useToast();
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -109,9 +120,25 @@ export default function PixelPet() {
     };
   }, []);
 
+  const handleClick = () => {
+    const body = bodyRef.current;
+    if (body) {
+      body.classList.remove("pet-jump");
+      void body.offsetWidth;
+      body.classList.add("pet-jump");
+    }
+    const quote = PET_QUOTES[Math.floor(Math.random() * PET_QUOTES.length)];
+    showToast(quote);
+  };
+
   return (
     <div ref={wrapperRef} className="pointer-events-none fixed left-0 top-0 z-[150]" style={{ willChange: "transform" }}>
-      <div ref={bodyRef} className="relative" style={{ width: PET_SIZE, height: PET_SIZE }}>
+      <div
+        ref={bodyRef}
+        onClick={handleClick}
+        className="relative cursor-pointer pointer-events-auto"
+        style={{ width: PET_SIZE, height: PET_SIZE }}
+      >
         {PET_MAP.map((pixel, i) => (
           <span
             key={i}

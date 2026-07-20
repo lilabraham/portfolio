@@ -5,9 +5,9 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 
 const SPECS = [
-    { label: "Keyboard", value: "65% ISO — Linear Switches" },
-    { label: "Keycaps", value: "Custom Ramen Set" },
-    { label: "Setup", value: "Multi-board rotation" },
+  { label: "Keyboard", value: "75% Gasket Mount — Tri-Mode Wireless" },
+  { label: "Keycaps", value: "PBT Dye-Sub, Cherry Profile (FBB)" },
+  { label: "Switches", value: "Jwick T1 (Hotswap 5-Pin)" },
 ];
 
 export default function SetupCard() {
@@ -63,8 +63,8 @@ export default function SetupCard() {
                     {/* Specs */}
                     <div className="flex flex-col gap-5">
                         <p className="font-mono text-sm leading-relaxed text-muted">
-                            Every board here has a story — most of them built or modded
-                            by hand. This is where the actual typing happens.
+                            A 75% gasket-mount board that goes wherever I do — Bluetooth,
+                            2.4G, or wired, whichever the moment calls for.
                         </p>
                         <div className="flex flex-col gap-3 border-t border-border pt-4">
                             {SPECS.map((spec, index) => (

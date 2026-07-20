@@ -6,8 +6,12 @@ import PageTransition from "@/components/layout/PageTransition";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import CommandPalette from "@/components/layout/CommandPalette";
 import { CommandPaletteProvider } from "@/components/layout/CommandPaletteContext";
+import { ToastProvider } from "@/components/layout/ToastContext";
+import { ThemeProvider } from "@/components/layout/ThemeContext";
+import ThemeScript from "@/components/layout/ThemeScript";
 import KonamiEasterEgg from "@/components/layout/KonamiEasterEgg";
 import PixelPet from "@/components/layout/PixelPet";
+import DynamicTabTitle from "@/components/layout/DynamicTabTitle";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import CustomCursor from "@/components/ui/CustomCursor";
 import "./globals.css";
@@ -60,20 +64,28 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable} h-full`}>
+      <head>
+        <ThemeScript />
+      </head>
       <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
-        <ScrollProgress />
-        <CommandPaletteProvider>
-          <PageTransition>
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <ScrollToTopButton />
-            <CustomCursor />
-            <CommandPalette />
-          </PageTransition>
-        </CommandPaletteProvider>
-        <KonamiEasterEgg />
-        <PixelPet />
+        <ThemeProvider>
+          <ScrollProgress />
+          <ToastProvider>
+            <CommandPaletteProvider>
+              <PageTransition>
+                <Navbar />
+                <main className="flex-1">{children}</main>
+                <Footer />
+                <ScrollToTopButton />
+                <CustomCursor />
+                <CommandPalette />
+              </PageTransition>
+            </CommandPaletteProvider>
+            <PixelPet />
+          </ToastProvider>
+          <KonamiEasterEgg />
+          <DynamicTabTitle />
+        </ThemeProvider>
       </body>
     </html>
   );

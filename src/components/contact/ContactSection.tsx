@@ -5,8 +5,17 @@ import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import { profile } from "@/lib/data/profile";
+import { CopyIcon } from "@/components/ui/icons";
+import { useToast } from "@/components/layout/ToastContext";
 
 export default function ContactSection() {
+  const { showToast } = useToast();
+
+  const handleCopyEmail = async () => {
+    await navigator.clipboard.writeText(profile.email);
+    showToast("Email copied to clipboard ✓");
+  };
+
   return (
     <section className="py-24">
       <Container className="flex flex-col items-center gap-6 text-center">
@@ -37,9 +46,19 @@ export default function ContactSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-4 flex flex-wrap justify-center gap-4"
         >
-          <Button href={`mailto:${profile.email}`} variant="primary">
-            Email Me
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button href={`mailto:${profile.email}`} variant="primary">
+              Email Me
+            </Button>
+            <button
+              type="button"
+              aria-label="Copy email to clipboard"
+              onClick={handleCopyEmail}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent hover:text-accent"
+            >
+              <CopyIcon className="h-4 w-4" />
+            </button>
+          </div>
           {profile.whatsapp ? (
             <Button
               href={`https://wa.me/${profile.whatsapp.replace(/[^0-9]/g, "")}`}

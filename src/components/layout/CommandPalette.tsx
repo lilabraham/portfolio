@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState, useRef, type KeyboardEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaHome, FaUser, FaFolder, FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { HomeIcon, AboutIcon, ProjectsIcon, GithubIcon, LinkedinIcon, InstagramIcon, EmailIcon } from "@/components/ui/icons";
 import { useTransitionNavigate } from "./PageTransition";
 import { useCommandPalette } from "./CommandPaletteContext";
 import { NAV_LINKS } from "@/lib/data/nav";
@@ -17,16 +17,16 @@ interface PaletteItem {
 }
 
 const NAV_ICONS: Record<string, React.ReactNode> = {
-  "/": <FaHome className="h-4 w-4" />,
-  "/about": <FaUser className="h-4 w-4" />,
-  "/projects": <FaFolder className="h-4 w-4" />,
+  "/": <HomeIcon className="h-4 w-4" />,
+  "/about": <AboutIcon className="h-4 w-4" />,
+  "/projects": <ProjectsIcon className="h-4 w-4" />,
 };
 
 const SOCIAL_ICONS: Record<string, React.ReactNode> = {
-  github: <FaGithub className="h-4 w-4" />,
-  linkedin: <FaLinkedin className="h-4 w-4" />,
-  instagram: <FaInstagram className="h-4 w-4" />,
-  email: <FaEnvelope className="h-4 w-4" />,
+  github: <GithubIcon className="h-4 w-4" />,
+  linkedin: <LinkedinIcon className="h-4 w-4" />,
+  instagram: <InstagramIcon className="h-4 w-4" />,
+  email: <EmailIcon className="h-4 w-4" />,
 };
 
 export default function CommandPalette() {
@@ -41,7 +41,7 @@ export default function CommandPalette() {
       id: `nav-${link.href}`,
       label: link.label,
       hint: "Go to page",
-      icon: NAV_ICONS[link.href] ?? <FaFolder className="h-4 w-4" />,
+      icon: NAV_ICONS[link.href] ?? <ProjectsIcon className="h-4 w-4" />,
       action: () => navigate(link.href),
     }));
 
@@ -49,7 +49,7 @@ export default function CommandPalette() {
       id: `social-${social.icon}`,
       label: social.label,
       hint: social.external ? "Open link" : "Send email",
-      icon: SOCIAL_ICONS[social.icon] ?? <FaFolder className="h-4 w-4" />,
+      icon: SOCIAL_ICONS[social.icon] ?? <ProjectsIcon className="h-4 w-4" />,
       action: () => {
         window.open(social.href, social.external ? "_blank" : "_self");
       },
