@@ -41,7 +41,7 @@ export default function Hero() {
         <div className="absolute bottom-6 right-0.3 flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1.5 backdrop-blur-sm">
           <span className="h-1.5 w-1.5 rounded-full bg-success" />
           <span className="font-mono text-xs uppercase tracking-widest text-foreground">
-            65% ISO — Linear Switches
+            75% Gasket Mount - Jwick T1
           </span>
         </div>
       </div>

@@ -10,18 +10,6 @@
   --color-special: #f472b6;
 }
 
-.light {
-  --color-background: #ffffff;
-  --color-foreground: #0a0a0a;
-  --color-muted: #525252;
-  --color-accent: #9333ea;
-  --color-border: #e5e5e5;
-  --color-success: #059669;
-  --color-warning: #d97706;
-  --color-info: #0284c7;
-  --color-special: #db2777;
-}
-
 @theme inline {
   --color-background: var(--color-background);
   --color-foreground: var(--color-foreground);
