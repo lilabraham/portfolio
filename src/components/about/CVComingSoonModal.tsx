@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
 interface CVComingSoonModalProps {
     isOpen: boolean;
@@ -26,9 +27,13 @@ export default function CVComingSoonModal({ isOpen, onClose }: CVComingSoonModal
                         className="flex max-w-sm flex-col items-center gap-4 rounded-xl border border-border bg-background p-8 text-center md:max-w-md md:gap-5 md:p-10"
                     >
                         {/* Ganti src ini pakai GIF pilihan kamu — taruh di public/gif/, atau pakai embed Giphy/Tenor */}
-                        <img
+                        <Image
                             src="/gif/cv-loading.gif"
                             alt="CV still loading"
+                            width={320}
+                            height={320}
+                            loading="lazy"
+                            unoptimized
                             className="h-64 w-64 rounded-lg object-cover md:h-80 md:w-80"
                         />
                         <p className="font-mono text-sm text-muted">

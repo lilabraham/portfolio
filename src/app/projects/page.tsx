@@ -1,5 +1,3 @@
-// src/app/projects/page.tsx
-// AFTER
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import ProjectGrid from "@/components/projects/ProjectGrid";

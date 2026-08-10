@@ -1,4 +1,3 @@
-// AFTER
 "use client";
 
 import { useEffect, useState, useRef } from "react";
@@ -44,7 +43,7 @@ export default function ScrambleLogo() {
   };
 
   useEffect(() => {
-    scramble(true);
+    scramble(false);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -53,7 +52,7 @@ export default function ScrambleLogo() {
 
   const handleHover = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    scramble(true);
+    scramble(false);
   };
 
   return (

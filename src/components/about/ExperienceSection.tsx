@@ -19,18 +19,18 @@ const EXPERIENCE: ExperienceEntry[] = [
       "Working across full-stack web, mobile, desktop, and backend development for internal ERP systems — including Abhati Logistics and Abhati Inventory, both featured in my projects.",
   },
   {
+    role: "Freelance Full-Stack Developer",
+    org: "Client Projects",
+    period: "Sep 2025 – Present",
+    description:
+      "Building full-stack web apps for clients, including CERITA (an HIV/AIDS education platform) and EternaWed (a digital wedding invitation platform) — both featured in my projects.",
+  },
+  {
     role: "Backend Developer Intern",
     org: "PT Orbit Ventura Indonesia · Remote · MSIB Batch 7",
     period: "Sep 2024 – Dec 2024",
     description:
       "900-hour AI Developer internship (Certified Independent Study). Built PharmaFusion, an AI-integrated pharmaceutical data management system.",
-  },
-  {
-    role: "Freelance Full-Stack Developer",
-    org: "Client Projects",
-    period: "Jan 2024 – Present",
-    description:
-      "Building full-stack web apps for clients, including CERITA (an HIV/AIDS education platform) and EternaWed (a digital wedding invitation platform) — both featured in my projects.",
   },
 ];
 

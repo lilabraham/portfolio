@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";// AFTER
+import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 import ScrollProgress from "@/components/layout/ScrollProgress";
-import CommandPalette from "@/components/layout/CommandPalette";
-import { CommandPaletteProvider } from "@/components/layout/CommandPaletteContext";
-import { ToastProvider } from "@/components/layout/ToastContext";
-import KonamiEasterEgg from "@/components/layout/KonamiEasterEgg";
-import PixelPet from "@/components/layout/PixelPet";
+import { CommandPaletteProvider } from "@/context/CommandPaletteContext";
+import { ToastProvider } from "@/context/ToastContext";
 import DynamicTabTitle from "@/components/layout/DynamicTabTitle";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
-import CustomCursor from "@/components/ui/CustomCursor";
 import "./globals.css";
+
+import { CommandPalette, KonamiEasterEgg, PixelPet, CustomCursor } from "@/components/layout/DynamicUI";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],

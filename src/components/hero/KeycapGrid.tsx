@@ -23,10 +23,13 @@ export default function KeycapGrid() {
   const keyRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [pressedIndex, setPressedIndex] = useState<number | null>(null);
 
-// AFTER
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+
+    // Skip mouse-proximity animation on touch devices
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    if (isTouchDevice) return;
 
     let mouseX = -1000;
     let mouseY = -1000;

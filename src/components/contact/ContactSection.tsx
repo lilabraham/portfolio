@@ -6,7 +6,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import { profile } from "@/lib/data/profile";
 import { CopyIcon } from "@/components/ui/icons";
-import { useToast } from "@/components/layout/ToastContext";
+import { useToast } from "@/context/ToastContext";
 
 export default function ContactSection() {
   const { showToast } = useToast();

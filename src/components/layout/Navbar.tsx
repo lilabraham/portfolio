@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -9,8 +9,8 @@ import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/data/nav";
 import ScrambleLogo from "@/components/layout/ScrambleLogo"; import { EmailIcon, GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/icons";
 import { useTransitionNavigate, useMenuState } from "@/components/layout/PageTransition";
-import { useCommandPalette } from "@/components/layout/CommandPaletteContext";
-import { useToast } from "@/components/layout/ToastContext";
+import { useCommandPalette } from "@/context/CommandPaletteContext";
+import { useToast } from "@/context/ToastContext";
 import { profile } from "@/lib/data/profile";
 
 const ICON_MAP: Record<SocialIconName, typeof EmailIcon> = {

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState, useRef, type KeyboardEvent } from "react"
 import { AnimatePresence, motion } from "framer-motion";
 import { HomeIcon, AboutIcon, ProjectsIcon, GithubIcon, LinkedinIcon, InstagramIcon, EmailIcon } from "@/components/ui/icons";
 import { useTransitionNavigate } from "./PageTransition";
-import { useCommandPalette } from "./CommandPaletteContext";
+import { useCommandPalette } from "@/context/CommandPaletteContext";
 import { NAV_LINKS } from "@/lib/data/nav";
 import { socialLinks } from "@/lib/data/social";
 

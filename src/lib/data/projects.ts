@@ -12,7 +12,7 @@ export const projects: Project[] = [
     weight: 1,
     liveUrl: "https://cerita-skripsi.vercel.app/",
     repoUrl: "https://github.com/lilabraham/cerita-skripsi",
-    image: "/images/projects/cerita.png",
+    image: "/images/projects/cerita.webp",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "Zod"],
   },
   {
@@ -24,7 +24,7 @@ export const projects: Project[] = [
     featured: true,
     weight: 2,
     repoUrl: "https://github.com/lilabraham/abhati-logistics-desktop",
-    image: "/images/projects/abhati-logistics.png",
+    image: "/images/projects/abhati-logistics.webp",
     techStack: ["Flutter", "Dart", "Desktop"],
   },
   {
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     featured: true,
     weight: 3,
     repoUrl: "https://github.com/lilabraham/abhati-inventory-system",
-    image: "/images/projects/abhati-inventory.png",
+    image: "/images/projects/abhati-inventory.webp",
     techStack: ["CodeIgniter 4", "PHP", "MySQL", "Shield"],
   },
   {
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     weight: 4,
     liveUrl: "https://wedding-arin.netlify.app/",
     repoUrl: "https://github.com/lilabraham/eternawed-invitation-arin-",
-    image: "/images/projects/eternawed.png",
+    image: "/images/projects/eternawed.webp",
     techStack: ["Next.js", "Framer Motion", "Tailwind CSS"],
   },
   {
@@ -62,11 +62,10 @@ export const projects: Project[] = [
     weight: 5,
     liveUrl: "https://si-umkm-app.vercel.app/",
     repoUrl: "https://github.com/lilabraham/si-umkm-app",
-    image: "/images/projects/si-umkm.png",
+    image: "/images/projects/si-umkm.webp",
     imagePosition: "left center",
     techStack: ["Next.js", "TypeScript", "Firebase"],
   },
- // AFTER
   {
     slug: "pharmafusion",
     title: "PharmaFusion",
@@ -88,7 +87,7 @@ export const projects: Project[] = [
     weight: 6,
     liveUrl: "https://purbalingga-idw-app-pjqb84nrmznrfu4eqepmta.streamlit.app/",
     repoUrl: "https://github.com/lilabraham/purbalingga-idw-app",
-    image: "/images/projects/purbalingga-idw.png",
+    image: "/images/projects/purbalingga-idw.webp",
     techStack: ["Python", "Streamlit", "IDW Interpolation"],
   },
   {
@@ -112,7 +111,7 @@ export const projects: Project[] = [
     weight: 7,
     liveUrl: "https://steady-kitten-78e9c6.netlify.app",
     repoUrl: "https://github.com/lilabraham/skripsi-eduhealth",
-    image: "/images/projects/eduhealth.png",
+    image: "/images/projects/eduhealth.webp",
     techStack: ["HTML", "CSS", "JavaScript"],
   },
 ];

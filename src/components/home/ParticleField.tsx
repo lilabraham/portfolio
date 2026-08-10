@@ -3,7 +3,8 @@
 import { useEffect, useRef } from "react";
 
 const COLOR_VARS = ["--color-accent", "--color-success", "--color-warning", "--color-info", "--color-special"];
-const PARTICLE_COUNT = 22;
+const PARTICLE_COUNT_DESKTOP = 22;
+const PARTICLE_COUNT_MOBILE = 10;
 const GLYPHS = ["</>", "{}", ";", "#", "()", "=>", "[]", "$"];
 
 interface Particle {
@@ -25,6 +26,10 @@ export default function ParticleField() {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
+
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    const PARTICLE_COUNT = isMobile ? PARTICLE_COUNT_MOBILE : PARTICLE_COUNT_DESKTOP;
 
     const root = getComputedStyle(document.documentElement);
     const colors = COLOR_VARS.map((v) => root.getPropertyValue(v).trim()).filter(Boolean);
@@ -100,16 +105,34 @@ export default function ParticleField() {
       if (!document.hidden) rafId = requestAnimationFrame(draw);
     };
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!rafId) rafId = requestAnimationFrame(draw);
+        } else {
+          cancelAnimationFrame(rafId);
+          rafId = 0;
+        }
+      },
+      { threshold: 0.1 }
+    );
+
     resize();
     rafId = requestAnimationFrame(draw);
+    observer.observe(canvas);
     window.addEventListener("resize", resize);
-    window.addEventListener("mousemove", handleMouseMove);
+    if (!isTouchDevice) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
     document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
       cancelAnimationFrame(rafId);
+      observer.disconnect();
       window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", handleMouseMove);
+      if (!isTouchDevice) {
+        window.removeEventListener("mousemove", handleMouseMove);
+      }
       document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);

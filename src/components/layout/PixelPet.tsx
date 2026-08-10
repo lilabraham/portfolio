@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useToast } from "@/components/layout/ToastContext";
+import { useToast } from "@/context/ToastContext";
 
 const PIXEL_SIZE = 4;
 const GRID = 8;
@@ -132,7 +132,7 @@ export default function PixelPet() {
   };
 
   return (
-    <div ref={wrapperRef} className="pointer-events-none fixed left-0 top-0 z-[150]" style={{ willChange: "transform" }}>
+    <div ref={wrapperRef} className="pointer-events-none fixed left-0 top-0 z-[150] hidden md:block" style={{ willChange: "transform" }}>
       <div
         ref={bodyRef}
         onClick={handleClick}

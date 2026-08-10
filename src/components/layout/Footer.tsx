@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import Container from "@/components/ui/Container";
@@ -7,7 +7,7 @@ import { NAV_LINKS } from "@/lib/data/nav";
 import { socialLinks, type SocialIconName } from "@/lib/data/social";
 import { EmailIcon, GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/icons";
 import LocalTimeBadge from "@/components/layout/LocalTimeBadge";
-import { useToast } from "@/components/layout/ToastContext";
+import { useToast } from "@/context/ToastContext";
 
 const ICON_MAP: Record<SocialIconName, typeof EmailIcon> = {
   email: EmailIcon,

@@ -50,6 +50,8 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
             alt={`${title} screenshot`}
             fill
             priority={priority}
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMjYyNjI2Ii8+PC9zdmc+"
             style={{ objectPosition: project.imagePosition ?? "center" }}
             className="object-cover transition-transform duration-300 group-hover/card:scale-105"
             sizes="(min-width: 768px) 33vw, 100vw"
