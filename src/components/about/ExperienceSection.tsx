@@ -12,16 +12,16 @@ interface ExperienceEntry {
 
 const EXPERIENCE: ExperienceEntry[] = [
   {
-    role: "IT Programmer Intern",
+    role: "Software Engineer Intern",
     org: "Abhati Group · Onsite · Contract",
     period: "Jun 2026 – Present",
     description:
-      "Working across full-stack web, mobile, desktop, and backend development for internal ERP systems — including Abhati Logistics and Abhati Inventory, both featured in my projects.",
+      "Contributing to internal ERP development and drafting SOP documentation aligned with ISO 27001 — working across full-stack web, mobile, desktop, and backend systems.",
   },
   {
     role: "Freelance Full-Stack Developer",
     org: "Client Projects",
-    period: "Sep 2025 – Present",
+    period: "Sep 2025 – Sep 2026",
     description:
       "Building full-stack web apps for clients, including CERITA (an HIV/AIDS education platform) and EternaWed (a digital wedding invitation platform) — both featured in my projects.",
   },
