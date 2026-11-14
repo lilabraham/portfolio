@@ -5,6 +5,7 @@ import {
   SiPython, SiPandas, SiNumpy, SiMysql, SiPostgresql,
   SiGit, SiGithub, SiFigma, SiDiagramsdotnet,
 } from "react-icons/si";
+import { FaDatabase } from "react-icons/fa";
 import type { TechCategory } from "@/lib/types";
 
 export const TECH_ICON_MAP: Record<string, IconType[]> = {
@@ -13,13 +14,14 @@ export const TECH_ICON_MAP: Record<string, IconType[]> = {
   "TypeScript": [SiTypescript],
   "Tailwind CSS": [SiTailwindcss],
   "Flutter": [SiFlutter],
-  "PHP / CodeIgniter 4": [SiPhp, SiCodeigniter],
+  "PHP (Native / CodeIgniter 4)": [SiPhp, SiCodeigniter],
   "Firebase": [SiFirebase],
   "Python (Pandas/NumPy)": [SiPython, SiPandas, SiNumpy],
   "SQL (MySQL/PostgreSQL)": [SiMysql, SiPostgresql],
   "Git / GitHub": [SiGit, SiGithub],
   "Figma": [SiFigma],
   "Draw.io": [SiDiagramsdotnet],
+  "SQLyog": [FaDatabase],
 };
 
 export const CATEGORY_COLOR: Record<TechCategory, string> = {

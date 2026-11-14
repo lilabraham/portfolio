@@ -8,7 +8,7 @@ export const techStack: TechItem[] = [
   { name: "Tailwind CSS", category: "Frontend" },
   { name: "Flutter", category: "Frontend" },
 
-  { name: "PHP / CodeIgniter 4", category: "Backend" },
+  { name: "PHP (Native / CodeIgniter 4)", category: "Backend" },
   { name: "Firebase", category: "Backend" },
 
   { name: "Python (Pandas/NumPy)", category: "Data" },
@@ -17,6 +17,7 @@ export const techStack: TechItem[] = [
   { name: "Git / GitHub", category: "Tools" },
   { name: "Figma", category: "Tools" },
   { name: "Draw.io", category: "Tools" },
+  { name: "SQLyog", category: "Tools" },
 ];
 
 export const CATEGORY_ORDER: TechCategory[] = ["Frontend", "Backend", "Data", "Tools"];

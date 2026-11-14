@@ -16,7 +16,7 @@ const EXPERIENCE: ExperienceEntry[] = [
     org: "Abhati Group · Onsite · Contract",
     period: "Jun 2026 – Present",
     description:
-      "Contributing to internal ERP development and drafting SOP documentation aligned with ISO 27001 — working across full-stack web, mobile, desktop, and backend systems.",
+      "Mapping business processes of the internal web ERP into flowcharts and fixing bugs in its PHP native codebase (MySQL, managed via SQLyog). Drafted ISO 27001-aligned SOP documentation (in review) and shipped Abhati Logistics, a Flutter mobile app.",
   },
   {
     role: "Freelance Full-Stack Developer",

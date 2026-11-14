@@ -40,7 +40,7 @@ export default function AboutSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="max-w-xl font-body text-base leading-relaxed text-muted"
           >
-            I&apos;m a freelance full-stack developer and data analyst based in
+            I&apos;m a full-stack developer and data analyst based in
             Central Java, Indonesia. I care more about software that actually
             gets used than software that just ships — which shapes how I
             approach every project, from enterprise dashboards to research

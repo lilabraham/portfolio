@@ -31,7 +31,11 @@ export default function TerminalCard() {
 
             <p><span className="text-success">$</span> git log --current</p>
             <p className="pl-4 text-warning">
-              Building Abhati Logistics (Flutter) & CERITA platform...
+              Mapping ERP business processes into flowcharts (Draw.io) &
+              tracing/fixing bugs in a PHP native web ERP (MySQL via SQLyog)...
+            </p>
+            <p className="pl-4 text-muted">
+              ISO 27001 SOP docs — awaiting review
             </p>
 
             <p className="flex items-center gap-1">

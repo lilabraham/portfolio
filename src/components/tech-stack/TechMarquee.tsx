@@ -7,6 +7,7 @@ import {
   SiPython, SiPandas, SiNumpy, SiMysql, SiPostgresql,
   SiGit, SiGithub, SiFigma, SiDiagramsdotnet,
 } from "react-icons/si";
+import { FaDatabase } from "react-icons/fa";
 import type { TechCategory } from "@/lib/types";
 
 interface MarqueeIcon {
@@ -40,6 +41,7 @@ const MARQUEE_ICONS: MarqueeIcon[] = [
   { Icon: SiGithub, label: "GitHub", category: "Tools" },
   { Icon: SiFigma, label: "Figma", category: "Tools" },
   { Icon: SiDiagramsdotnet, label: "Draw.io", category: "Tools" },
+  { Icon: FaDatabase, label: "SQLyog", category: "Tools" },
 ];
 
 const LOOP_ICONS = [...MARQUEE_ICONS, ...MARQUEE_ICONS];
